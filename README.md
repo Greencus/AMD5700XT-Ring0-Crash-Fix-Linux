@@ -16,8 +16,9 @@ Guide for troubleshooting.
 **STEPS TO FOLLOW (LACT):**
 - Replace the GRUB_CMDLINE_LINUX_DEFAULT line in /etc/default/grub with: `GRUB_CMDLINE_LINUX_DEFAULT='quiet splash amdgpu.noretry=0 amdgpu.lockup_timeout=0 iommu=pt amdgpu.gpu_recovery=1 amdgpu.runpm=0 amdgpu.mcbp=0 amdgpu.ppfeaturemask=0xf7fff'`
 - Run `sudo update-grub` and reboot.
-- Now download [LACT](https://github.com/ilya-zlobintsev/LACT) and the file **config.yalm** listed in this repository.
-- Replace the current **config.yalm** file to the one downloaded from this repository in /etc/lact/
+- Now download [LACT](https://github.com/ilya-zlobintsev/LACT) and the file **config.yaml** listed in this repository.
+- Replace both instances of `[GPU ID]` in the config.yaml file with the ID that appears in the lact gui. The ID appears in the lact gui when you click the box that allows you to select your gpu, under your listed gpu will be the ID
+- Replace the current **config.yaml** file to the one downloaded from this repository in /etc/lact/
 - Start LACT daemon with `sudo systemctl enable --now lactd` and add it to boot with `sudo systemctl enable lactd` (Find the equivalent command for your INIT system)
 - Start LACT with GUI and change your profile to "Altered".
 - Modify the fan curve to your liking and apply.
